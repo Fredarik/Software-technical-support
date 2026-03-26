@@ -1,16 +1,34 @@
-# React + Vite
+# Лендінг бакалаврської роботи (Bachelor Thesis Landing Page)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Цей проєкт є частиною бакалаврської роботи, присвяченої розробці сучасного, адаптивного та двомовного веб-додатка (лендінг-пейдж). Створено спеціально для демонстрації результатів дослідження та розробок на базі Сумського державного університету (СумДУ).
 
-Currently, two official plugins are available:
+## Основні характеристики (Features)
+- **Двомовність (i18n):** Повна підтримка української та англійської мов.
+- **Сучасний дизайн:** Використання сучасних практик UI/UX, плавних анімацій, градієнтів та адаптивної верстки.
+- **Швидка збірка (Vite):** Проєкт базується на React + Vite для забезпечення максимальної швидкості розробки та збірки (HMR).
+- **SEO Оптимізація:** Налаштовані `robots.txt` та `sitemap.xml` для кращої індексації пошуковими системами.
+- **Доступність (A11y):** Відповідність стандартам доступності веб-контенту.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Технології (Tech Stack)
+- **Бібліотека:** React (v18)
+- **Збірка:** Vite
+- **Стилізація:** Vanilla CSS
 
-## React Compiler
+## Інструкція для локального запуску (How to Run Locally)
+1. Встановіть залежності проєкту:
+   ```bash
+   npm install
+   ```
+2. Запустіть сервер розробки:
+   ```bash
+   npm run dev
+   ```
+3. Відкрийте браузер за вказаною у терміналі адресою (зазвичай `http://localhost:5173/`).
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Структура Проєкту
+- `src/components/` — Усі компоненти лендінгу (Герой, Особливості, Футер тощо).
+- `src/LanguageContext.jsx` — Логіка перемикання мов (i18n).
+- `public/` — Статичні ресурси, такі як favicon, robots.txt та sitemap.xml.
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Ліцензія (License)
+Цей проєкт розповсюджується під ліцензією [MIT](LICENSE). Детальніше дивіться у файлі ліцензії.
