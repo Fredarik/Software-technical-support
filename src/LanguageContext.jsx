@@ -1,4 +1,4 @@
-import React, { createContext, useState, useContext } from 'react';
+import React, { createContext, useState, useContext } from 'react'
 
 const translations = {
   uk: {
@@ -40,21 +40,32 @@ const translations = {
     footer_fac: 'Faculty of Electronics and Information Technologies',
     footer_rights: 'All rights reserved.'
   }
-};
+}
 
-const LanguageContext = createContext();
+const LanguageContext = createContext()
 
+/**
+ * Провайдер контексту мови для всього додатку.
+ * Забезпечує доступ до перекладів, поточної мови та функції зміни мови.
+ * 
+ * @component
+ * @param {Object} props - Пропси компонента
+ * @param {React.ReactNode} props.children - Дочірні елементи
+ * @returns {JSX.Element} Провайдер контексту
+ */
 export const LanguageProvider = ({ children }) => {
-  const [lang, setLang] = useState('uk');
+  const [lang, setLang] = useState('uk')
   
-  const t = (key) => translations[lang][key] || key;
-  const toggleLang = () => setLang(prev => prev === 'uk' ? 'en' : 'uk');
+  const t = (key) => translations[lang][key] || key
+  const toggleLang = () => setLang(prev => prev === 'uk' ? 'en' : 'uk')
 
   return (
     <LanguageContext.Provider value={{ lang, t, toggleLang }}>
       {children}
     </LanguageContext.Provider>
-  );
-};
-
-export const useLanguage = () => useContext(LanguageContext);
+  )
+}
+ * @returns {Object} Об'єкт контексту { lang, t, toggleLang }
+ * @throws {Error} Якщо використовується поза межами LanguageProvider
+ */
+export const useLanguage = () => useContext(LanguageContext)
