@@ -25,8 +25,6 @@ export const handleError = (error, source = 'UnknownSource') => {
   } else {
     errorLogger.error(`[${errorDetails.code}] [${errorDetails.id}]: ${errorDetails.message}`, errorDetails);
   }
-
-  // Тут можна додати відправку на сервер 
   return errorDetails;
 };
 
