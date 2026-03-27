@@ -1,15 +1,22 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react'
 
+/**
+ * Компонент навігаційної панелі.
+ * Реалізує зміну стилів при скролі сторінки.
+ * 
+ * @component
+ * @returns {JSX.Element} Рендерить навігаційну панель з логотипом та посиланнями.
+ */
 export default function Navbar() {
-  const [scrolled, setScrolled] = useState(false);
+  const [scrolled, setScrolled] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+      setScrolled(window.scrollY > 50)
+    }
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   return (
     <nav style={{
@@ -32,5 +39,5 @@ export default function Navbar() {
         </div>
       </div>
     </nav>
-  );
+  )
 }
