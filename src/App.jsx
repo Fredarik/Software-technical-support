@@ -9,6 +9,9 @@ import logger from './utils/logger'
 
 const appLogger = logger('App');
 
+import { AppError } from './utils/errors'
+import { handleError } from './utils/errorHandler'
+
 function App() {
   useEffect(() => {
     appLogger.info('Компонент App змонтовано (Mount)');
@@ -21,23 +24,34 @@ function App() {
 
     // Симуляція завантаження даних
     const simulationFetch = async () => {
+      const startTime = Date.now();
       appLogger.debug('Початок симуляції завантаження критичних даних...');
 
-      // Попередження про повільне з'єднання 
+      // Попередження про повільне з'єднання
       const isSlowConnection = Math.random() > 0.7;
       if (isSlowConnection) {
         appLogger.warn('Виявлено повільне з\'єднання. Завантаження може тривати довше.');
       }
 
       try {
-        const success = Math.random() > 0.2;
+        const success = Math.random() > 0.3;
         if (success) {
           appLogger.info('Дані успішно отримані та оброблені.');
         } else {
-          throw new Error('Помилка мережі при спробі отримати дані.');
+          // Кидаємо деталізовану помилку
+          throw new AppError('Помилка завантаження товарів конфігуратора', {
+            code: 'ERR_FETCH_DATA',
+            context: {
+              component: 'App',
+              endpoint: '/api/v1/data',
+              loadTime: Date.now() - startTime,
+              retryAttempt: 1
+            }
+          });
         }
       } catch (err) {
-        appLogger.error('Критична помилка операції з даними!', { details: err.message });
+        // Логуємо через централізований обробник
+        handleError(err, 'App/simulationFetch');
       }
     };
 
