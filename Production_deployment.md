@@ -98,4 +98,4 @@ cp -r dist/* /var/www/react-app/dist/
 
 ---
 
-© 2026 Команда розробки
+
