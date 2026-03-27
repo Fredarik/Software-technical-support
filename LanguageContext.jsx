@@ -65,11 +65,6 @@ export const LanguageProvider = ({ children }) => {
     </LanguageContext.Provider>
   )
 }
-
-/**
- * Хук для використання контексту мови.
- * Надає доступ до функції перекладу `t`, поточної мови `lang` та функції `toggleLang`.
- * 
  * @returns {Object} Об'єкт контексту { lang, t, toggleLang }
  * @throws {Error} Якщо використовується поза межами LanguageProvider
  */
